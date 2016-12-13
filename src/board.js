@@ -1,10 +1,10 @@
 var Board = function(){
-	this.board = [[1,2,3],[4,5,6],[7,8,9]];
+	this.boardArray = [[1,2,3],[4,5,6],[7,8,9]];
 	this.counter = 0
 };
 
 Board.prototype ={
-	show: function(){ return this.board;},
+	show: function(){ return this.boardArray;},
 	isWon: function(board) {
 		this.counter += 1;
 		// horizontal row:

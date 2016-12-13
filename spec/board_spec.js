@@ -1,16 +1,30 @@
 import Board from "board"
 import Game from "game"
+import Player from "player"
 
 describe('Board', function() {
 
   describe('show', function() {
         it('should return a 2D array', function() {
         	var testBoard = new Board;
-            console.log("testboard:",testBoard.show());
+           console.log("testboard:", testBoard.show());
             expect(testBoard.show().length).toEqual(3);
-            expect( Array.isArray(testBoard.show()[0]) ).toEqual(true);
+
+            for (var i = 0; i < testBoard.show().length; i++){
+                expect( Array.isArray(testBoard.show()[i]) ).toEqual(true);
+            };        
+        });
+
+        it('should have 1-9 as sub elements', function() {
+            var testBoard = new Board;
+            for (var i = 0; i < testBoard.length; i++){
+                expect( testBoard[i][0] ).toEqual(i+1);
+                expect( testBoard[i][1] ).toEqual(i+2);
+                expect( testBoard[i][2] ).toEqual(i+3);
+            };
         });
     });
+
     describe('isWon', function() {
       // need to handle draw
           it('should return the winning element if a game has been won horizontally', function() {
@@ -41,5 +55,6 @@ describe('Board', function() {
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", 9]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
           });
-      });
+    });
 });
+
