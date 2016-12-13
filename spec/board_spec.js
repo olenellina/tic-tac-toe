@@ -11,9 +11,18 @@ describe('Board', function() {
         });
     });
     describe('isWon', function() {
-          it('should return true if a game has been won, along with the winning element', function() {
+      // need to handle draw
+          it('should return the winning element if a game has been won horizontally', function() {
             var winningBoard = new Board;
               expect(winningBoard.isWon([["x","x","x"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual("x");
+          });
+          it('should return the winning element if a game has been won vertically', function() {
+            var winningBoard = new Board;
+              expect(winningBoard.isWon([["x", "x", "o"], ["x", "x", "o"], ["x", "o", "o"]])).toEqual("x");
+          });
+          it('should return the winning element if a game has been won diagonally', function() {
+            var winningBoard = new Board;
+              expect(winningBoard.isWon([["x", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual("x");
           });
           it('should return false if a game has not been won', function() {
             var winningBoard = new Board;
