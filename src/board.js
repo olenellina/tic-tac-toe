@@ -4,6 +4,14 @@ var Board = function(){
 };
 
 Board.prototype ={
+	clear: function() {
+		// Note: there might be more functionality that we'll want to add here.
+		// Basically anything that is done during a new game setup to generate the board and give control to a player.
+		// That functionality could also be handeled by the game or whichever function calls clear()
+		this.board = [[1,2,3],[4,5,6],[7,8,9]];
+		this.counter = 0;
+		return this.board;
+	},
 	show: function(){
 
 	for (let i = 0; i < this.board.length; i++) {
@@ -56,6 +64,3 @@ var checker = function(element1, element2, element3) {
 };
 
 module.exports = Board;
-
-var winningBoard = new Board;
-winningBoard.show();
