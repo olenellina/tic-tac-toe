@@ -22,11 +22,24 @@ describe('Board', function() {
           });
           it('should return the winning element if a game has been won diagonally', function() {
             var winningBoard = new Board;
-              expect(winningBoard.isWon([["x", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual("x");
+              expect(winningBoard.isWon([["o", "o", "x"], ["o", "o", "x"], ["x", "x", "o"]])).toEqual("o");
           });
           it('should return false if a game has not been won', function() {
             var winningBoard = new Board;
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual(false);
+          });
+          it('should return catch a draw and notify users', function() {
+            var winningBoard = new Board;
+              expect(winningBoard.isWon([["o", null, null], [null, null, null], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", null], [null, null, null], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], [null, null, null], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", null, null], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", null], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], [null, null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", null, null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
+
           });
       });
 });
