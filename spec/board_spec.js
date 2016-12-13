@@ -28,7 +28,7 @@ describe('Board', function() {
             var winningBoard = new Board;
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual(false);
           });
-          it('should return catch a draw and notify users', function() {
+          it('should catch a draw and notify users', function() {
             var winningBoard = new Board;
               expect(winningBoard.isWon([["o", null, null], [null, null, null], [null, null, null]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", null], [null, null, null], [null, null, null]])).toEqual(false);
@@ -39,7 +39,6 @@ describe('Board', function() {
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", null, null]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", null]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
-
           });
       });
 });
