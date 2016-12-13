@@ -1,4 +1,5 @@
-import Board from "game"
+import Board from "board"
+import Game from "game"
 
 describe('Board', function() {
 
