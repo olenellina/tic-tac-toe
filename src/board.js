@@ -4,7 +4,16 @@ var Board = function(){
 };
 
 Board.prototype ={
-	show: function(){ return this.board;},
+	show: function(){
+
+	for (let i = 0; i < this.board.length; i++) {
+		console.log(this.board[i][0].toString() + " | " + this.board[i][1].toString() + " | " + this.board[i][2].toString() );
+		if (i < 2) {
+			console.log("---------");
+		}
+	}
+		return this.board;
+	},
 	isWon: function(board) {
 		this.counter += 1;
 		// horizontal row:
@@ -47,3 +56,6 @@ var checker = function(element1, element2, element3) {
 };
 
 module.exports = Board;
+
+var winningBoard = new Board;
+winningBoard.show();
