@@ -39,7 +39,7 @@ Board.prototype ={
 var checker = function(element1, element2, element3) {
 	// Ensures that default values in board do not cause a false win
 	// Null can be replaced with another placeholder value
-	if (element1 === null || element2 === null || element3 === null) {
+	if (Number.isInteger(element1) === true || Number.isInteger(element2) === true || Number.isInteger(element3) === true) {
 		return false;
 	} else {
   		return (element1 === element2 && element2 === element3);

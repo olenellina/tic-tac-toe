@@ -30,14 +30,14 @@ describe('Board', function() {
           });
           it('should catch a draw and notify users', function() {
             var winningBoard = new Board;
-              expect(winningBoard.isWon([["o", null, null], [null, null, null], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", null], [null, null, null], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], [null, null, null], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", null, null], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", null], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], [null, null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", null, null]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", null]])).toEqual(false);
+              expect(winningBoard.isWon([["o", 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", 3], [4, 5, 6], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], [4, 5, 6], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", 5, 6], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", 6], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], [7, 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", 8, 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", 9]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
           });
       });
