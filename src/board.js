@@ -1,5 +1,5 @@
 var Board = function(){
-	this.board = [[1,2,3],[4,5,6],[7,8,9]];
+	this.board = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]];
 	this.counter = 0
 };
 
@@ -8,7 +8,7 @@ Board.prototype ={
 		// Note: there might be more functionality that we'll want to add here.
 		// Basically anything that is done during a new game setup to generate the board and give control to a player.
 		// That functionality could also be handeled by the game or whichever function calls clear()
-		this.board = [[1,2,3],[4,5,6],[7,8,9]];
+		this.board = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]];
 		this.counter = 0;
 		return this.board;
 	},
@@ -56,10 +56,10 @@ Board.prototype ={
 var checker = function(element1, element2, element3) {
 	// Ensures that default values in board do not cause a false win
 	// Null can be replaced with another placeholder value
-	if (Number.isInteger(element1) === true || Number.isInteger(element2) === true || Number.isInteger(element3) === true) {
-		return false;
+	if (element1.match(/[a-z]/i) && element1.match(/[a-z]/i) && element1.match(/[a-z]/i)) {
+		return (element1 === element2 && element2 === element3);
 	} else {
-  		return (element1 === element2 && element2 === element3);
+  		return false;
 		}
 };
 

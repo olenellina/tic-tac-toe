@@ -31,15 +31,24 @@ describe('Board', function() {
           });
           it('should catch a draw and notify users', function() {
             var winningBoard = new Board;
-              expect(winningBoard.isWon([["o", 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", 3], [4, 5, 6], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], [4, 5, 6], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", 5, 6], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", 6], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], [7, 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", 8, 9]])).toEqual(false);
-              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", 9]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "5", "6"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "6"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["7", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "8", "9"]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", "9"]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
           });
       });
+      describe('clear', function() {
+            it('should return the default board array when called', function() {
+            	var testBoard = new Board;
+                // here will be a call to play, once that code is complete
+                // and here will be a test to ensure that the board has been updated
+                testBoard.clear();
+                expect(testBoard.show()[0][0]).toEqual("1");
+            });
+        });
 });
