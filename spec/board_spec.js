@@ -35,7 +35,7 @@ describe('Board', function() {
           });
           // it('should catch a draw and notify users', function() {
           //   var winningBoard = new Board;
-          //     expect(winningBoard.isWon([["o", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
+          //     winningBoard.isWon([["o", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
           //     expect(winningBoard.isWon([["o", "x", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
           //     expect(winningBoard.isWon([["o", "x", "o"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
           //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "5", "6"], ["7", "8", "9"]])).toEqual(false);
