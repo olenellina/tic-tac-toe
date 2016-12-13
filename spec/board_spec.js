@@ -7,7 +7,9 @@ describe('Board', function() {
   describe('show', function() {
         it('should return a 2D array', function() {
         	var testBoard = new Board;
+           console.log("testboard:", testBoard.show());
             expect(testBoard.show().length).toEqual(3);
+
             for (var i = 0; i < testBoard.show().length; i++){
                 expect( Array.isArray(testBoard.show()[i]) ).toEqual(true);
             };        

@@ -5,8 +5,8 @@ import Player from "player"
 
 describe('play', function() {
     it('should have each number map to a specific position', function(){
-        var testGame = new Game;
-        testGame.player1.play(1);
-        expect(testBoard.show()[0][0]).toEqual("X")
+        var testGame = new Game();
+        testGame.player1.play("1");
+        expect(testGame.board.show()[0][0]).toEqual("x")
     });
 });
