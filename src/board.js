@@ -55,7 +55,6 @@ Board.prototype ={
 // Handles the checking of board elements
 var checker = function(element1, element2, element3) {
 	// Ensures that default values in board do not cause a false win
-	// Null can be replaced with another placeholder value
 	if (element1.match(/[a-z]/i) && element1.match(/[a-z]/i) && element1.match(/[a-z]/i)) {
 		return (element1 === element2 && element2 === element3);
 	} else {
