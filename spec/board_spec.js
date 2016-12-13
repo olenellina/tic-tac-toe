@@ -13,11 +13,11 @@ describe('Board', function() {
     describe('isWon', function() {
           it('should return true if a game has been won, along with the winning element', function() {
             var winningBoard = new Board;
-              expect(winningBoard.isWon([[1, 1, 1], [1, 1, 0], [0, 0, 1]])).toEqual(1);
+              expect(winningBoard.isWon([["x","x","x"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual("x");
           });
           it('should return false if a game has not been won', function() {
             var winningBoard = new Board;
-              expect(winningBoard.isWon([[0, 1, 0], [1, 1, 0], [0, 0, 1]])).toEqual(false);
+              expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]])).toEqual(false);
           });
       });
 });
