@@ -1,5 +1,6 @@
 import Board from "board"
 import Game from "game"
+import Player from "player"
 
 describe('Board', function() {
 
@@ -20,22 +21,8 @@ describe('Board', function() {
                 expect( testBoard[i][2] ).toEqual(i+3);
             };
         });
-
-        it('should have each number map to a specific position'), function(){
-            var testBoard = new Board;
-            var player1 = new Player;
-            var player2 = new Player;
-            var testGame = new Game;
-            player1.play(1);
-            expect(testBoard.show()[0][0]).toEqual("X")
-        }
-
-    //     it('should create a new game with two players and a board')
-    //         var testBoard = new Board
-    // });
-});
-
     });
+
     describe('isWon', function() {
       // need to handle draw
           it('should return the winning element if a game has been won horizontally', function() {
@@ -66,6 +53,6 @@ describe('Board', function() {
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", 9]])).toEqual(false);
               expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
           });
-      });
+    });
 });
 
