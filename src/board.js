@@ -65,4 +65,4 @@ var checker = function(element1, element2, element3) {
 	}
 };
 
-module.exports = Board;
+export default Board;
