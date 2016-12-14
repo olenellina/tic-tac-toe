@@ -15,6 +15,7 @@ var Player = function(){
 	}
 	this.tag = "";
 	this.board= undefined;
+	this.game = undefined;
 };
 
 Player.prototype ={
@@ -40,9 +41,9 @@ Player.prototype ={
 			this.board.boardArray[x_coord][y_coord]=this.tag;
 			var checkWin = this.board.isWon();
 			if (checkWin === true) {
-				return true;
+				this.game.gameDraw();
 			} else if (checkWin === "x" || checkWin === "o") {
-					return "game won";
+					this.game.gameWon();
 				}
 			}
 	}

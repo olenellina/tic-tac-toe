@@ -11,9 +11,20 @@ var Game = function(){
 	this.board = new Board();
 	this.player1.board=this.board;
 	this.player2.board=this.board;
+	this.player1.game = this;
+	this.player1.game = this;
 };
 
- 
+Game.prototype ={
+	gameDraw: function() {
+		console.log("There is a draw. Game over");
+	},
+	gameWon: function() {
+		console.log("Someone has won the game");
+	}
+};
+
+
 
 
 
