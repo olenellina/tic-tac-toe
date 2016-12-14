@@ -19,7 +19,11 @@ Player.prototype ={
 
 	play: function(string_num){
 		//throw type error if string_num is not a valid number, ie 1-9
-
+		if (typeof(string_num) !== "string"){
+      		throw new TypeError;
+    	}else if(parseInt(string_num)>9){
+    		throw "ArgumentError";
+    	}
 		//put the player's tag in the string_num spot they designated
 		this.board.boardArray[this.positions[string_num][0]] [this.positions[string_num][1]]=this.tag;
 	}
