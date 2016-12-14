@@ -25,7 +25,15 @@ Player.prototype ={
     		throw "ArgumentError";
     	}
 		//put the player's tag in the string_num spot they designated
-		this.board.boardArray[this.positions[string_num][0]] [this.positions[string_num][1]]=this.tag;
+		var x_coord=this.positions[string_num][0];
+		var y_coord=this.positions[string_num][1];
+		var cell=this.board.boardArray[x_coord][y_coord];
+		
+		if (cell=="x" || cell=="o"){
+			throw "InvalidMoveError";
+		}else{
+			this.board.boardArray[x_coord][y_coord]=this.tag;
+		}
 	}
 };
 
