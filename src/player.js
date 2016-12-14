@@ -11,7 +11,8 @@ var Player = function(){
 		"9": [2,2]
 	}
 	this.tag = "";
-	this.board= undefined;
+	this.board = undefined;
+	this.name = "";
 };
 
 Player.prototype ={
@@ -21,7 +22,7 @@ Player.prototype ={
 		//throw type error if string_num is not a valid number, ie 1-9
 		if (typeof(string_num) !== "string"){
       		throw new TypeError;
-    	}else if(parseInt(string_num)>9){
+    	}else if(parseInt(string_num)>9 || parseInt(string_num) < 1){
     		throw "ArgumentError";
     	}
     	
@@ -42,26 +43,4 @@ Player.prototype ={
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-module.exports = Player;
+export default Player;
