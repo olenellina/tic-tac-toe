@@ -24,7 +24,9 @@ Player.prototype ={
     	}else if(parseInt(string_num)>9){
     		throw "ArgumentError";
     	}
+    	
 		//put the player's tag in the string_num spot they designated
+		//but throws error if that spot was already played in
 		var x_coord=this.positions[string_num][0];
 		var y_coord=this.positions[string_num][1];
 		var cell=this.board.boardArray[x_coord][y_coord];
