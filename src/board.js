@@ -59,7 +59,7 @@ var checker = function(element1, element2, element3) {
 		return (element1 === element2 && element2 === element3);
 	} else {
   		return false;
-		}
+	}
 };
 
 module.exports = Board;

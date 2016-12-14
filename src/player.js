@@ -19,9 +19,23 @@ Player.prototype ={
 
 	play: function(string_num){
 		//throw type error if string_num is not a valid number, ie 1-9
-
+		if (typeof(string_num) !== "string"){
+      		throw new TypeError;
+    	}else if(parseInt(string_num)>9){
+    		throw "ArgumentError";
+    	}
+    	
 		//put the player's tag in the string_num spot they designated
-		this.board.boardArray[this.positions[string_num][0]] [this.positions[string_num][1]]=this.tag;
+		//but throws error if that spot was already played in
+		var x_coord=this.positions[string_num][0];
+		var y_coord=this.positions[string_num][1];
+		var cell=this.board.boardArray[x_coord][y_coord];
+		
+		if (cell=="x" || cell=="o"){
+			throw "InvalidMoveError";
+		}else{
+			this.board.boardArray[x_coord][y_coord]=this.tag;
+		}
 	}
 };
 
