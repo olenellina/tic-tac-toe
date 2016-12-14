@@ -9,12 +9,11 @@ var Game = function(){
 	this.board = new Board;
 	this.player1.board=this.board;
 	this.player2.board=this.board;
+	this.player1.game = this;
+	this.player2.game = this;
 };
 
-// var setNames = function(error,result){
-// 	this.player1.name=result.player1Name;
-// 	this.player2.name=result.player2Name;
-// }
+
 
 Game.prototype ={
 	start: function(name1,name2){
@@ -26,7 +25,29 @@ Game.prototype ={
 	
 }
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
