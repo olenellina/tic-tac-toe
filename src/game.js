@@ -11,9 +11,12 @@ var Game = function(){
 	this.board = new Board();
 	this.player1.board=this.board;
 	this.player2.board=this.board;
+	this.player1.game = this;
+	this.player2.game = this;
 };
 
- 
+
+
 
 
 

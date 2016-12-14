@@ -24,6 +24,7 @@ Board.prototype ={
 	},
 	isWon: function() {
 		this.counter += 1;
+
 		// horizontal row:
 		for (let i = 0; i < this.boardArray.length; i++) {
 			if (checker(this.boardArray[i][0], this.boardArray[i][1], this.boardArray[i][2])) {
@@ -44,7 +45,9 @@ Board.prototype ={
 		}
 		// Final case - checks for tie
 		if (this.counter === 9) {
-			return "There is a draw: no winner";
+			this.clear();
+			console.log("There is a draw. Game Over.");
+			return true;
 		} else {
 		// increment counter
 			return false;
