@@ -14,12 +14,12 @@ Board.prototype ={
 	},
 	show: function(){
 
-	// for (let i = 0; i < this.boardArray.length; i++) {
-	// 	console.log(this.boardArray[i][0].toString() + " | " + this.boardArray[i][1].toString() + " | " + this.boardArray[i][2].toString() );
-	// 	if (i < 2) {
-	// 		console.log("---------");
-	// 	}
-	// }
+	for (let i = 0; i < this.boardArray.length; i++) {
+		console.log(this.boardArray[i][0].toString() + " | " + this.boardArray[i][1].toString() + " | " + this.boardArray[i][2].toString() );
+		if (i < 2) {
+			console.log("---------");
+		}
+	}
 		return this.boardArray;
 	},
 	isWon: function() {
