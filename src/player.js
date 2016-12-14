@@ -1,3 +1,6 @@
+import Board from "board"
+import Game from "game"
+
 var Player = function(){
 	this.positions= {
 		"1": [0,0],
@@ -15,7 +18,7 @@ var Player = function(){
 };
 
 Player.prototype ={
-	
+
 
 	play: function(string_num){
 		//throw type error if string_num is not a valid number, ie 1-9
@@ -24,18 +27,24 @@ Player.prototype ={
     	}else if(parseInt(string_num)>9){
     		throw "ArgumentError";
     	}
-    	
+
 		//put the player's tag in the string_num spot they designated
 		//but throws error if that spot was already played in
 		var x_coord=this.positions[string_num][0];
 		var y_coord=this.positions[string_num][1];
 		var cell=this.board.boardArray[x_coord][y_coord];
-		
-		if (cell=="x" || cell=="o"){
+
+		if (cell==="x" || cell==="o"){
 			throw "InvalidMoveError";
 		}else{
 			this.board.boardArray[x_coord][y_coord]=this.tag;
-		}
+			var checkWin = this.board.isWon();
+			if (checkWin === true) {
+				return true;
+			} else if (checkWin === "x" || checkWin === "o") {
+					return "game won";
+				}
+			}
 	}
 };
 

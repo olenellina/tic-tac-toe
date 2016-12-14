@@ -14,16 +14,17 @@ Board.prototype ={
 	},
 	show: function(){
 
-	for (let i = 0; i < this.boardArray.length; i++) {
-		console.log(this.boardArray[i][0].toString() + " | " + this.boardArray[i][1].toString() + " | " + this.boardArray[i][2].toString() );
-		if (i < 2) {
-			console.log("---------");
-		}
-	}
+	// for (let i = 0; i < this.boardArray.length; i++) {
+	// 	console.log(this.boardArray[i][0].toString() + " | " + this.boardArray[i][1].toString() + " | " + this.boardArray[i][2].toString() );
+	// 	if (i < 2) {
+	// 		console.log("---------");
+	// 	}
+	// }
 		return this.boardArray;
 	},
 	isWon: function() {
-		this.counter += 1;
+		this.counter = this.counter + 1;
+
 		// horizontal row:
 		for (let i = 0; i < this.boardArray.length; i++) {
 			if (checker(this.boardArray[i][0], this.boardArray[i][1], this.boardArray[i][2])) {
@@ -44,7 +45,7 @@ Board.prototype ={
 		}
 		// Final case - checks for tie
 		if (this.counter === 9) {
-			return "There is a draw: no winner";
+			return true;
 		} else {
 		// increment counter
 			return false;

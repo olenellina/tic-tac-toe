@@ -1,5 +1,6 @@
 import Board from "board"
 import Game from "game"
+import Player from "player"
 
 describe('Board', function() {
 
@@ -7,10 +8,10 @@ describe('Board', function() {
         it('should return a 2D array', function() {
             var testBoard = new Board;
               expect(testBoard.show().length).toEqual(3);
- 
+
           for (var i = 0; i < testBoard.show().length; i++){
               expect( Array.isArray(testBoard.show()[i]) ).toEqual(true);
-           };        
+           };
         });
 
         it('should have 1-9 as sub elements', function() {
@@ -44,26 +45,26 @@ describe('Board', function() {
             winningBoard.boardArray = [["o", "x", "o"], ["x", "x", "o"], ["o", "o", "x"]];
               expect(winningBoard.isWon()).toEqual(false);
           });
-          // it('should catch a draw and notify users', function() {
-          //   var winningBoard = new Board;
-          //     winningBoard.isWon([["o", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "3"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["4", "5", "6"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "5", "6"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "6"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["7", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "8", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o", "9"]])).toEqual(false);
-          //     expect(winningBoard.isWon([["o", "x", "o"], ["x", "x", "o"], ["o", "o","x"]])).toEqual("There is a draw: no winner");
-          // });
+          it('should catch a draw and notify users', function() {
+            var testGame = new Game();
+            testGame.player1.play("2");
+            testGame.player2.play("1");
+            testGame.player1.play("4");
+            testGame.player2.play("3");
+            testGame.player1.play("5");
+            testGame.player2.play("6");
+            testGame.player1.play("7");
+            testGame.player2.play("8");
+            expect(testGame.player1.play("9")).toEqual(true);
+          });
       });
       describe('clear', function() {
             it('should return the default board array when called', function() {
-            	var testBoard = new Board;
-                testBoard.boardArray = [["x","x","x"], ["x", "x", "o"], ["o", "o", "x"]];
-                expect(testBoard.show()[0][0]).toEqual("x");
-                testBoard.clear();
-                expect(testBoard.show()[0][0]).toEqual("1");
+              var testGame = new Game();
+              testGame.player1.play("1");
+              expect(testGame.board.show()[0][0]).toEqual("x");
+              testGame.board.clear();
+              expect(testGame.board.show()[0][0]).toEqual("1");
             });
         });
 });
