@@ -41,9 +41,14 @@ Player.prototype ={
 			this.board.boardArray[x_coord][y_coord]=this.tag;
 			var checkWin = this.board.isWon();
 			if (checkWin === true) {
-				this.game.gameDraw();
-			} else if (checkWin === "x" || checkWin === "o") {
-					this.game.gameWon();
+				this.board.clear();
+				return "There is a draw. Game Over.";
+			} else if (checkWin === "x") {
+					this.board.clear();
+					return "X won the game!";
+				} else if (checkWin === "o") {
+					this.board.clear();
+					return "O won the game!";
 				}
 			}
 	}
