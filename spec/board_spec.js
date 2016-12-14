@@ -55,7 +55,7 @@ describe('Board', function() {
             testGame.player2.play("6");
             testGame.player1.play("7");
             testGame.player2.play("8");
-            expect(testGame.player1.play("9")).toEqual("There is a draw. Game Over.");
+            expect(testGame.player1.play("9")).toEqual(true);
           });
       });
       describe('clear', function() {

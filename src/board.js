@@ -45,6 +45,8 @@ Board.prototype ={
 		}
 		// Final case - checks for tie
 		if (this.counter === 9) {
+			this.clear();
+			console.log("There is a draw. Game Over.");
 			return true;
 		} else {
 		// increment counter
