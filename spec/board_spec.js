@@ -56,6 +56,7 @@ describe('Board', function() {
             testGame.player1.play("7");
             testGame.player2.play("8");
             expect(testGame.player1.play("9")).toEqual(true);
+            expect(testGame.board.show()[0][0]).toEqual("1");
           });
       });
       describe('clear', function() {

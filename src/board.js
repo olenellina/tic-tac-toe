@@ -23,7 +23,7 @@ Board.prototype ={
 		return this.boardArray;
 	},
 	isWon: function() {
-		this.counter = this.counter + 1;
+		this.counter += 1;
 
 		// horizontal row:
 		for (let i = 0; i < this.boardArray.length; i++) {
