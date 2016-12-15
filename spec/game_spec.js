@@ -7,7 +7,6 @@ describe('Game', function() {
 	describe('new Game', function() {
 	    it('should create a new game with two players and a board', function() {
 	        var testGame = new Game;
-	        // console.log(testGame.player1.toString().call(testGame.player1))
 	        expect(testGame.player1 instanceof Player).toEqual(true);
 	        expect(testGame.player2 instanceof Player).toEqual(true);
 	        expect(testGame.board instanceof Board).toEqual(true);
@@ -17,8 +16,8 @@ describe('Game', function() {
 	describe('start', function() {
 	    it('can specify player names when starting a game', function() {
 	       var testGame = new Game;
-	       // expect(testGame.player1).toEqual("");
-	       // expect(testGame.player2).toEqual("");
+	       expect(testGame.player1.name).toEqual("");
+	       expect(testGame.player2.name).toEqual("");
 	       testGame.start("Quai","Melissa");
 	       expect(testGame.player1.name).toEqual("Quai");
 	       expect(testGame.player2.name).toEqual("Melissa");
