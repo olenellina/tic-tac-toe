@@ -36,8 +36,18 @@ Player.prototype ={
 
 		if (cell==="x" || cell==="o"){
 			throw "InvalidMoveError";
+		}else if( this.tag !== this.game.whoseTurn) {
+			throw "OutOfTurnError";
 		}else{
 			this.board.boardArray[x_coord][y_coord]=this.tag;
+			
+			//swtich who's turn it is
+			if (this.game.whoseTurn === "x"){
+				this.game.whoseTurn="o";
+			}else{
+				this.game.whoseTurn="x";
+			}
+
 			return this.board.isWon();
 			}
 	}

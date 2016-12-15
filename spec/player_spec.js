@@ -35,4 +35,14 @@ describe('play', function() {
         expect(function(){testGame.player2.play("1")}).toThrow("InvalidMoveError");
     });
 
+   	it('will not allow a player to play out of turn', function(){
+        var testGame = new Game();
+        testGame.player1.play("1");
+        expect(function(){testGame.player1.play("2")}).toThrow("OutOfTurnError");
+    });
+
+    it('will not allow player2 to start the game', function(){
+        var testGame = new Game();
+        expect(function(){testGame.player2.play("1")}).toThrow("OutOfTurnError");
+    });
 });
