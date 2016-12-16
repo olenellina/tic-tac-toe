@@ -19,22 +19,20 @@ $(document).ready(function(){
       if (checker($('#board').find('#1').text(), $('#board').find('#2').text(), $('#board').find('#3').text()) ||
       checker($('#board').find('#4').text(), $('#board').find('#5').text(), $('#board').find('#6').text()) ||
       checker($('#board').find('#7').text(), $('#board').find('#8').text(), $('#board').find('#9').text())) {
-        console.log(player, "has won!");
+        $('#board').hide();
+        $('#game-status').append(player, " has won!");
+        clearBoard();
       }
 
       // vertical row:
       if (checker($('#board').find('#1').text(), $('#board').find('#4').text(), $('#board').find('#7').text()) ||
       checker($('#board').find('#2').text(), $('#board').find('#5').text(), $('#board').find('#8').text()) ||
       checker($('#board').find('#3').text(), $('#board').find('#6').text(), $('#board').find('#9').text())) {
-        console.log(player, "has won!");
+        $('#board').hide();
+        $('#game-status').append(player, " has won!");
+        clearBoard();
       }
 
-  		// // Vertical column:
-  		// for (let i = 0; i < this.boardArray.length; i++) {
-  		// 	if (checker(this.boardArray[0][i], this.boardArray[1][i], this.boardArray[2][i])) {
-  		// 		return this.boardArray[0][i];
-  		// 	}
-  		// }
   		// // Diagonal:
   		// if (checker(this.boardArray[0][0], this.boardArray[1][1], this.boardArray[2][2])) {
   		// 	return this.boardArray[0][0];
@@ -51,7 +49,13 @@ $(document).ready(function(){
     };
 
     $('#newGame').on('click',function(){
-        $('.game-square').text('');
+      $('#game-status').hide();
+      clearBoard();
+      $('#board').show();
     });
+
+    var clearBoard = function() {
+      $('.game-square').text('');
+    };
 
 });
