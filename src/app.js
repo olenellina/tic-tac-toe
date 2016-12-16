@@ -22,6 +22,13 @@ $(document).ready(function(){
         console.log(player, "has won!");
       }
 
+      // vertical row:
+      if (checker($('#board').find('#1').text(), $('#board').find('#4').text(), $('#board').find('#7').text()) ||
+      checker($('#board').find('#2').text(), $('#board').find('#5').text(), $('#board').find('#8').text()) ||
+      checker($('#board').find('#3').text(), $('#board').find('#6').text(), $('#board').find('#9').text())) {
+        console.log(player, "has won!");
+      }
+
   		// // Vertical column:
   		// for (let i = 0; i < this.boardArray.length; i++) {
   		// 	if (checker(this.boardArray[0][i], this.boardArray[1][i], this.boardArray[2][i])) {
