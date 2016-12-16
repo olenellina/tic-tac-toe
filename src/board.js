@@ -1,3 +1,8 @@
+$(document).ready(function() {
+    $('#id').click(function() {
+        $('p').fadeIn('x');
+    });
+
 var Board = function(){
 	this.boardArray = [["1", "2", "3"], ["4", "5", "6"], ["7", "8", "9"]];
 	this.counter = 0
@@ -65,4 +70,4 @@ var checker = function(element1, element2, element3) {
 	}
 };
 
-export default Board;
+});

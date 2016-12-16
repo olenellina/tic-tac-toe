@@ -7,47 +7,34 @@
   </head>
   <body>
     <main>
-      <header>
-        <h2> Tic-Tac-Toe</h2>
+	    <header>
+        <h1>Tic-Tac-Toe</h1>
       </header>
-      <div id="board">
-        <div class="row">
-          <div id="1" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="2" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="3" class="game-square">
-            <p>1</p>
-          </div>
-        </div>
-        <div class="row">
-          <div id="4" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="5" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="6" class="game-square">
-            <p>1</p>
-          </div>
-        </div>
-        <div class="row">
-          <div id="7" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="8" class="game-square">
-            <p>1</p>
-          </div>
-          <div id="9" class="game-square">
-            <p>1</p>
-          </div>
-        </div>
-        </div>
-      </div>
-      <button type="button">New Game</button>
-    </main>
-    <script src="/app.bundle.js" charset="utf-8"></script>
+	    <div id="board">
+	        <table>
+	          <tr id="row-1">
+	            <td id=1 class="game-square"></td>
+	            <td id=2 class="game-square v-line"></td>
+	            <td id=3 class="game-square"></td>
+	          </tr>
+	          <tr id="row-2">
+	            <td id=4 class="game-square h-line"></td>
+	            <td id=5 class="game-square v-line h-line"></td>
+	            <td id=6 class="game-square h-line"></td>
+	          </tr>
+	          <tr id="row-3">
+	            <td id=7 class="game-square"></td>
+	            <td id=8 class="game-square v-line"></td>
+	            <td id=9 class="game-square"></td>
+	          </tr>
+	        </table>
+	      </div>
+
+        <button type="button">New Game</button>
+
+	</main>
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="app.js" charset="utf-8"></script>
   </body>
 </html>
