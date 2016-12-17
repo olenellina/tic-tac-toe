@@ -25,10 +25,16 @@ $(document).ready(function(){
 
 
     var isWon = function(player){
+      let element = [];
+
+      for (let i = 1; i <= 9; i++) {
+        element[i - 1] = $('#board').find("#" + i).text();
+      }
+
       // horizontal row:
-      if (checker($('#board').find('#1').text(), $('#board').find('#2').text(), $('#board').find('#3').text()) ||
-      checker($('#board').find('#4').text(), $('#board').find('#5').text(), $('#board').find('#6').text()) ||
-      checker($('#board').find('#7').text(), $('#board').find('#8').text(), $('#board').find('#9').text())) {
+      if (checker(element[0], element[1], element[2]) ||
+      checker(element[3], element[4], element[5]) ||
+      checker(element[6], element[7], element[8])) {
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
@@ -36,9 +42,9 @@ $(document).ready(function(){
       }
 
       // vertical row:
-      if (checker($('#board').find('#1').text(), $('#board').find('#4').text(), $('#board').find('#7').text()) ||
-      checker($('#board').find('#2').text(), $('#board').find('#5').text(), $('#board').find('#8').text()) ||
-      checker($('#board').find('#3').text(), $('#board').find('#6').text(), $('#board').find('#9').text())) {
+      if (checker(element[0], element[3], element[6]) ||
+      checker(element[1], element[4], element[7]) ||
+      checker(element[2], element[5], element[8])) {
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
@@ -46,8 +52,8 @@ $(document).ready(function(){
       }
 
   		// Diagonal:
-      if (checker($('#board').find('#1').text(), $('#board').find('#5').text(), $('#board').find('#9').text()) ||
-      checker($('#board').find('#7').text(), $('#board').find('#5').text(), $('#board').find('#3').text())) {
+      if (checker(element[0], element[4], element[8]) ||
+      checker(element[6], element[4], element[2])) {
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
