@@ -2,6 +2,7 @@ $(document).ready(function(){
     let turnCounter = 0;
 
       $('#board').find('td').on('click', function(){
+            $('#game-status').empty()
             if (turnCounter % 2 === 0){
               if ($(this).text() === "X" || $(this).text() === "O") {
                 $('#game-status').empty().append("Invalid Move");
@@ -31,6 +32,7 @@ $(document).ready(function(){
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
+        return;
       }
 
       // vertical row:
@@ -40,16 +42,19 @@ $(document).ready(function(){
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
+        return;
       }
 
-  		// // Diagonal:
+  		// Diagonal:
       if (checker($('#board').find('#1').text(), $('#board').find('#5').text(), $('#board').find('#9').text()) ||
       checker($('#board').find('#7').text(), $('#board').find('#5').text(), $('#board').find('#3').text())) {
         $('#board').hide();
         $('#game-status').empty().append(player, " has won!");
         clearBoard();
+        return;
       }
 
+      // Final Case (checks for tie)
       if (turnCounter === 8) {
         $('#board').hide();
         $('#game-status').empty().append("Tie: No winner");
@@ -59,7 +64,7 @@ $(document).ready(function(){
     };
 
     var checker = function(element1, element2, element3) {
-      if (element1.match(/[a-z]/i) && element1.match(/[a-z]/i) && element1.match(/[a-z]/i)) {
+      if (element1 + element2 + element3 !== '') {
     	   return (element1 === element2 && element2 === element3);
     	}
     };
