@@ -2,23 +2,17 @@ $(document).ready(function(){
     let turnCounter = 0;
 
       $('#board').find('td').on('click', function(){
-            $('#game-status').empty()
+            $('#game-status').empty();
+            if ($(this).text() === "X" || $(this).text() === "O") {
+              $('#game-status').append("Invalid Move");
+              turnCounter--;
+            }
             if (turnCounter % 2 === 0){
-              if ($(this).text() === "X" || $(this).text() === "O") {
-                $('#game-status').empty().append("Invalid Move");
-                turnCounter--;
-              } else {
-                $(this).text('X');
-                isWon('X');
-              }
+              $(this).text('X');
+              isWon('X');
             } else {
-              if ($(this).text() === "X" || $(this).text() === "O") {
-                $('#game-status').empty().append("Invalid Move");
-                turnCounter--;
-              } else {
-                $(this).text('O');
-                isWon('O');
-              }
+              $(this).text('O');
+              isWon('O');
             }
           turnCounter++;
       });
