@@ -3,11 +3,21 @@ $(document).ready(function(){
 
       $('#board').find('td').on('click', function(){
             if (turnCounter % 2 === 0){
-              $(this).text('X');
-              isWon('X');
+              if ($(this).text() === "X" || $(this).text() === "O") {
+                $('#game-status').empty().append("Invalid Move");
+                turnCounter--;
+              } else {
+                $(this).text('X');
+                isWon('X');
+              }
             } else {
-              $(this).text('O');
-              isWon('O');
+              if ($(this).text() === "X" || $(this).text() === "O") {
+                $('#game-status').empty().append("Invalid Move");
+                turnCounter--;
+              } else {
+                $(this).text('O');
+                isWon('O');
+              }
             }
           turnCounter++;
       });
