@@ -40,17 +40,24 @@ $(document).ready(function(){
         clearBoard();
       }
 
+      if (turnCounter === 8) {
+        $('#board').hide();
+        $('#game-status').empty().append("Tie: No winner");
+        clearBoard();
+      }
+
     };
 
     var checker = function(element1, element2, element3) {
       if (element1.match(/[a-z]/i) && element1.match(/[a-z]/i) && element1.match(/[a-z]/i)) {
-    	   return (element1 === element2 && element2 === element3)
+    	   return (element1 === element2 && element2 === element3);
     	}
     };
 
-    $('#newGame').on('click',function(){
+    $('#new-game').on('click',function(){
       $('#game-status').empty();
       clearBoard();
+      turnCounter = 0;
       $('#board').show();
     });
 
