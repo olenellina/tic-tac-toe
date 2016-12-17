@@ -14,13 +14,12 @@ $(document).ready(function(){
 
 
     var isWon = function(player){
-
       // horizontal row:
       if (checker($('#board').find('#1').text(), $('#board').find('#2').text(), $('#board').find('#3').text()) ||
       checker($('#board').find('#4').text(), $('#board').find('#5').text(), $('#board').find('#6').text()) ||
       checker($('#board').find('#7').text(), $('#board').find('#8').text(), $('#board').find('#9').text())) {
         $('#board').hide();
-        $('#game-status').append(player, " has won!");
+        $('#game-status').empty().append(player, " has won!");
         clearBoard();
       }
 
@@ -29,16 +28,17 @@ $(document).ready(function(){
       checker($('#board').find('#2').text(), $('#board').find('#5').text(), $('#board').find('#8').text()) ||
       checker($('#board').find('#3').text(), $('#board').find('#6').text(), $('#board').find('#9').text())) {
         $('#board').hide();
-        $('#game-status').append(player, " has won!");
+        $('#game-status').empty().append(player, " has won!");
         clearBoard();
       }
 
   		// // Diagonal:
-  		// if (checker(this.boardArray[0][0], this.boardArray[1][1], this.boardArray[2][2])) {
-  		// 	return this.boardArray[0][0];
-  		// } else if (checker(this.boardArray[0][2], this.boardArray[1][1], this.boardArray[2][0])) {
-  		// 	return this.boardArray[0][2];
-  		// }
+      if (checker($('#board').find('#1').text(), $('#board').find('#5').text(), $('#board').find('#9').text()) ||
+      checker($('#board').find('#7').text(), $('#board').find('#5').text(), $('#board').find('#3').text())) {
+        $('#board').hide();
+        $('#game-status').empty().append(player, " has won!");
+        clearBoard();
+      }
 
     };
 
@@ -49,7 +49,7 @@ $(document).ready(function(){
     };
 
     $('#newGame').on('click',function(){
-      $('#game-status').hide();
+      $('#game-status').empty();
       clearBoard();
       $('#board').show();
     });
