@@ -1,16 +1,19 @@
 $(document).ready(function(){
     let turnCounter = 0;
+    let gameEnd = false;
     const players = ['X', 'O'];
 
       $('#board').find('td').on('click', function(){
         $('#game-status').empty();
-        if ($(this).text() === "X" || $(this).text() === "O") {
+        if (gameEnd === true) {
+          $('#game-status').append("Game Over");
+        } else if ($(this).text() === "X" || $(this).text() === "O") {
           $('#game-status').append("Invalid Move");
-          return;
+        } else if (gameEnd === false) {
+          $(this).text(players[turnCounter % 2]);
+          isWon(players[turnCounter % 2]);
+          turnCounter++;
         }
-        $(this).text(players[turnCounter % 2]);
-        isWon(players[turnCounter % 2]);
-        turnCounter++;
       });
 
     let isWon = function(player){
@@ -56,9 +59,8 @@ $(document).ready(function(){
     };
 
     let gameOver = function(message) {
-      $('#board').hide();
       $('#game-status').empty().append(message);
-      clearBoard();
+      gameEnd = true;
     };
 
     $('#new-game').on('click',function(){
@@ -66,10 +68,12 @@ $(document).ready(function(){
       clearBoard();
       turnCounter = 0;
       $('#board').show();
+      gameEnd = false;
     });
 
     let clearBoard = function() {
       $('.game-square').text('');
+      gameEnd = false;
     };
 
 });
