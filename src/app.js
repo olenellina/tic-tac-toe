@@ -2,19 +2,15 @@ $(document).ready(function(){
     let turnCounter = 0;
 
       $('#board').find('td').on('click', function(){
-          $('#game-status').empty();
-          if ($(this).text() === "X" || $(this).text() === "O") {
-            $('#game-status').append("Invalid Move");
-            return;
-          }
-          if (turnCounter % 2 === 0){
-            $(this).text('X');
-            isWon('X');
-          } else {
-            $(this).text('O');
-            isWon('O');
-          }
-          turnCounter++;
+        var players = ['X', 'O'];
+        $('#game-status').empty();
+        if ($(this).text() === "X" || $(this).text() === "O") {
+          $('#game-status').append("Invalid Move");
+          return;
+        }
+        $(this).text(players[turnCounter % 2]);
+        isWon(players[turnCounter % 2]);
+        turnCounter++;
       });
 
 
