@@ -1,8 +1,8 @@
 $(document).ready(function(){
     let turnCounter = 0;
+    const players = ['X', 'O'];
 
       $('#board').find('td').on('click', function(){
-        var players = ['X', 'O'];
         $('#game-status').empty();
         if ($(this).text() === "X" || $(this).text() === "O") {
           $('#game-status').append("Invalid Move");
@@ -13,10 +13,8 @@ $(document).ready(function(){
         turnCounter++;
       });
 
-
-    var isWon = function(player){
+    let isWon = function(player){
       let element = [];
-
       for (let i = 1; i <= 9; i++) {
         element[i - 1] = $('#board').find("#" + i).text();
       }
@@ -49,16 +47,15 @@ $(document).ready(function(){
         gameOver("Tie: No winner");
         return;
       }
-
     };
 
-    var checker = function(element1, element2, element3) {
+    let checker = function(element1, element2, element3) {
       if (element1 + element2 + element3 !== '') {
     	   return (element1 === element2 && element2 === element3);
     	}
     };
 
-    var gameOver = function(message) {
+    let gameOver = function(message) {
       $('#board').hide();
       $('#game-status').empty().append(message);
       clearBoard();
@@ -71,7 +68,7 @@ $(document).ready(function(){
       $('#board').show();
     });
 
-    var clearBoard = function() {
+    let clearBoard = function() {
       $('.game-square').text('');
     };
 
