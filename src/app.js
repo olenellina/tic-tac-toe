@@ -64,7 +64,13 @@ $(document).ready(function(){
 
     let gameOver = function(gameBoard, player, message) {
       let outcome = player;
-      console.log(gameBoard);
+
+      for (let i = 0; i < gameBoard.length; i++) {
+        if (gameBoard[i] === "") {
+          gameBoard[i] = " ";
+        }
+      }
+
       $('#game-status').empty().append(player + message);
       gameEnd = true;
     };
