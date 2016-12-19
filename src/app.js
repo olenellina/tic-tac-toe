@@ -9,8 +9,8 @@ $(document).ready(function(){
     $('#clear-board').hide();
 
       $('#new-game').on('click',function(){
-        player1 = $('#player1').val();
-        player2 = $('#player2').val();
+        player1 = $('#player1').val().toString();
+        player2 = $('#player2').val().toString();
         clearBoard();
         $('#board').show();
         $('#clear-board').show();
