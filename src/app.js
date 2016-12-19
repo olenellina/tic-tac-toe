@@ -1,7 +1,21 @@
 $(document).ready(function(){
     let turnCounter = 0;
     let gameEnd = false;
+    let player1 = "";
+    let player2 = "";
     const players = ['X', 'O'];
+
+    $('#board').hide();
+    $('#clear-board').hide();
+
+      $('#new-game').on('click',function(){
+        player1 = $('#player1').val();
+        player2 = $('#player2').val();
+        clearBoard();
+        $('#board').show();
+        $('#clear-board').show();
+        $('#new').hide();
+      });
 
       $('#board').find('td').on('click', function(){
         $('#game-status').empty();
@@ -64,28 +78,32 @@ $(document).ready(function(){
 
     let gameOver = function(gameBoard, player, message) {
       let outcome = player;
-
       for (let i = 0; i < gameBoard.length; i++) {
         if (gameBoard[i] === "") {
           gameBoard[i] = " ";
         }
       }
-
-      $('#game-status').empty().append(player + message);
+      if (player === "X") {
+        $('#game-status').empty().append(player1 + message);
+      } else {
+        $('#game-status').empty().append(player2 + message);
+      }
       gameEnd = true;
+      $('#new').show();
+      $('#clear-board').hide();
+      player1 = $('#player1').val("");
+      player2 = $('#player2').val("");
     };
-
-    $('#new-game').on('click',function(){
-      $('#game-status').empty();
-      clearBoard();
-      turnCounter = 0;
-      $('#board').show();
-      gameEnd = false;
-    });
 
     let clearBoard = function() {
+      $('#game-status').empty();
       $('.game-square').text('');
+      turnCounter = 0;
       gameEnd = false;
     };
+
+    $('#clear-board').on('click', function() {
+      clearBoard();
+    });
 
 });
