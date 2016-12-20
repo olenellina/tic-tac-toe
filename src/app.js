@@ -2,6 +2,13 @@
 
 $(document).ready(function(){
     const playerTags = ["X", "O"];
+    const saveGame = "http://localhost:3000/api/v1/games"
+
+    let test = {
+      "board": ["X"," ","O","X","O"," ","X"," "," "],
+      "players": ["X Player","O Player"],
+      "outcome": "X",
+    };
 
     let Game = function(player1, player2) {
       this.board = [];
@@ -100,11 +107,8 @@ $(document).ready(function(){
       this.gameEnd = true;
       $('#new').show();
       $('#clear-board').hide();
-      console.log(this.players);
       this.players = [$('#player1').val(""), $('#player2').val("")];
 
-      console.log(this.board);
-      console.log(this.outcome);
     };
 
     Game.prototype.clearBoard = function() {
@@ -114,8 +118,22 @@ $(document).ready(function(){
       this.gameEnd = false;
     };
 
+    // $('#create-pet').on('click', function(e) {
+    //   // url is defined above
+    //   e.preventDefault();
+    //   $.post(url, data, callback);
+    // }
+
     $('#clear-board').on('click', function() {
       game.clearBoard();
+    });
+
+    $('#save-game').on('click', function(e) {
+      console.log("oh yeah");
+      e.preventDefault();
+      $.post(saveGame, test, function(response){
+        console.log(response);
+      })
     });
 
 });
