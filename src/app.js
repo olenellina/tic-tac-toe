@@ -4,12 +4,6 @@ $(document).ready(function(){
     const playerTags = ["X", "O"];
     const saveGame = "http://localhost:3000/api/v1/games"
 
-    let test = {
-      "board": ["X"," ","O","X","O"," ","X"," "," "],
-      "players": ["X Player","O Player"],
-      "outcome": "X",
-    };
-
     let Game = function(player1, player2) {
       this.board = [];
       this.turnCounter = 0;
@@ -118,6 +112,22 @@ $(document).ready(function(){
       this.gameEnd = false;
     };
 
+    Game.prototype.data = function() {
+      // let test = {
+      //   "board": ["X", "X", "O", "X", "O", "X", "X", "X", "X"],
+      //   "players": ["Bob","Jim"],
+      //   "outcome": "X",
+      // };
+
+      let gameData = {
+        "board": this.board.toString(),
+        "players": this.players[0].toString(),
+        "outcome": this.outcome
+      }
+
+      return gameData;
+    };
+
     // $('#create-pet').on('click', function(e) {
     //   // url is defined above
     //   e.preventDefault();
@@ -130,8 +140,11 @@ $(document).ready(function(){
 
     $('#save-game').on('click', function(e) {
       console.log("oh yeah");
+
+      let transData = game.data();
+      console.log(transData);
       e.preventDefault();
-      $.post(saveGame, test, function(response){
+      $.post(saveGame, transData, function(response){
         console.log(response);
       })
     });
