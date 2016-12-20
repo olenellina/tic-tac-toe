@@ -8,7 +8,7 @@ $(document).ready(function(){
       this.turnCounter = 0;
       this.gameEnd = false;
       this.players = [player1, player2];
-      this.winner = "";
+      this.outcome = "";
     };
 
     // now game is in scope for all methods within document.ready function
@@ -51,7 +51,7 @@ $(document).ready(function(){
       if (this.checker(this.board[0], this.board[1], this.board[2]) ||
       this.checker(this.board[3], this.board[4], this.board[5]) ||
       this.checker(this.board[6], this.board[7], this.board[8])) {
-        this.gameOver(this.board, player, " has won!");
+        this.gameOver(player, " has won!");
         return;
       }
 
@@ -59,36 +59,36 @@ $(document).ready(function(){
       if (this.checker(this.board[0], this.board[3], this.board[6]) ||
       this.checker(this.board[1], this.board[4], this.board[7]) ||
       this.checker(this.board[2], this.board[5], this.board[8])) {
-        this.gameOver(this.board, player, " has won!");
+        this.gameOver(player, " has won!");
         return;
       }
 
   		// Diagonal:
       if (this.checker(this.board[0], this.board[4], this.board[8]) ||
       this.checker(this.board[6], this.board[4], this.board[2])) {
-        this.gameOver(this.board, player, " has won!");
+        this.gameOver(player, " has won!");
         return;
       }
 
       // Final Case (checks for tie)
       if (this.turnCounter === 8) {
         let player = "Draw";
-        this.gameOver(this.board, player, ": no winner");
+        this.gameOver(player, ": no winner");
         return;
       }
     };
 
-    Game.prototype.checker = function(board1, board2, board3) {
-      if (board1 + board2 + board3 !== '') {
-    	   return (board1 === board2 && board2 === board3);
+    Game.prototype.checker = function(element1, element2, element3) {
+      if (element1 + element2 + element3 !== '') {
+    	   return (element1 === element2 && element2 === element3);
     	}
     };
 
-    Game.prototype.gameOver = function(board, player, message) {
-      this.winner = player;
-      for (let i = 0; i < board.length; i++) {
-        if (board[i] === "") {
-          board[i] = " ";
+    Game.prototype.gameOver = function(player, message) {
+      this.outcome = player;
+      for (let i = 0; i < this.board.length; i++) {
+        if (this.board[i] === "") {
+          this.board[i] = " ";
         }
       }
       if (player === playerTags[0]) {
@@ -99,7 +99,11 @@ $(document).ready(function(){
       this.gameEnd = true;
       $('#new').show();
       $('#clear-board').hide();
+      console.log(this.players);
       this.players = [$('#player1').val(""), $('#player2').val("")];
+
+      console.log(this.board);
+      console.log(this.outcome);
     };
 
     Game.prototype.clearBoard = function() {
