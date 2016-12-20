@@ -112,29 +112,20 @@ $(document).ready(function(){
     };
 
     Game.prototype.saveData = function() {
-      let gameData = {
+      return {
         "board": this.board,
         "players": [this.players[0].toString(), this.players[1].toString()],
         "outcome": this.outcome
       }
-
-      return gameData;
     };
-
-    // $('#create-pet').on('click', function(e) {
-    //   // url is defined above
-    //   e.preventDefault();
-    //   $.post(url, data, callback);
-    // }
 
     $('#clear-board').on('click', function() {
       game.clearBoard();
     });
 
     $('#save-game').on('click', function(e) {
-      let data = game.saveData();
       e.preventDefault();
-      $.post(saveGame, data, function(response){
+      $.post(saveGame, game.saveData(), function(response){
         console.log(response);
       })
     });
