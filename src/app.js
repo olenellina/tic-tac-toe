@@ -101,7 +101,6 @@ $(document).ready(function(){
       this.gameEnd = true;
       $('#new').show();
       $('#clear-board').hide();
-      this.players = [$('#player1').val(""), $('#player2').val("")];
 
     };
 
@@ -112,16 +111,10 @@ $(document).ready(function(){
       this.gameEnd = false;
     };
 
-    Game.prototype.data = function() {
-      // let test = {
-      //   "board": ["X", "X", "O", "X", "O", "X", "X", "X", "X"],
-      //   "players": ["Bob","Jim"],
-      //   "outcome": "X",
-      // };
-
+    Game.prototype.saveData = function() {
       let gameData = {
-        "board": this.board.toString(),
-        "players": this.players[0].toString(),
+        "board": this.board,
+        "players": [this.players[0].toString(), this.players[1].toString()],
         "outcome": this.outcome
       }
 
@@ -139,12 +132,9 @@ $(document).ready(function(){
     });
 
     $('#save-game').on('click', function(e) {
-      console.log("oh yeah");
-
-      let transData = game.data();
-      console.log(transData);
+      let data = game.saveData();
       e.preventDefault();
-      $.post(saveGame, transData, function(response){
+      $.post(saveGame, data, function(response){
         console.log(response);
       })
     });
