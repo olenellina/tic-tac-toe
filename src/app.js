@@ -17,6 +17,7 @@ $(document).ready(function(){
 
     $('#board').hide();
     $('#clear-board').hide();
+    $('#save-game').hide();
 
     $('#new-game').on('click',function(){
       game = new Game($('#player1').val().toString(), $('#player2').val().toString());
@@ -24,6 +25,7 @@ $(document).ready(function(){
       $('#board').show();
       $('#clear-board').show();
       $('#new').hide();
+      $('#save-game').hide();
     });
 
     $('#board').find('td').on('click', function(){
@@ -99,8 +101,8 @@ $(document).ready(function(){
           $('#game-status').empty().append(player + message);
       }
       this.gameEnd = true;
-      $('#new').show();
       $('#clear-board').hide();
+      $('#save-game').show();
 
     };
 
@@ -128,6 +130,12 @@ $(document).ready(function(){
       $.post(saveGame, game.saveData(), function(response){
         console.log(response);
       })
+      $('#new').show();
+      $('#game-status').empty();
+      $('#save-game').hide();
+      $('#board').hide();
+      $('#player1').val("");
+      $('#player2').val("");
     });
 
 });
