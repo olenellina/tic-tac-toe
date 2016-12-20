@@ -14,7 +14,6 @@ $(document).ready(function(){
     // now game is in scope for all methods within document.ready function
     let game;
 
-
     $('#board').hide();
     $('#clear-board').hide();
 
@@ -93,8 +92,10 @@ $(document).ready(function(){
       }
       if (player === playerTags[0]) {
         $('#game-status').empty().append(this.players[0] + message);
-      } else {
+      } else if (player === playerTags[1]) {
         $('#game-status').empty().append(this.players[1] + message);
+      } else if (player === "Draw"){
+          $('#game-status').empty().append(player + message);
       }
       this.gameEnd = true;
       $('#new').show();
