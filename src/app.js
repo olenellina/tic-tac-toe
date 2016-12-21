@@ -74,7 +74,7 @@ $(document).ready(function(){
 
       // Final Case (checks for tie)
       if (this.turnCounter === 8) {
-        let player = "Draw";
+        let player = "draw";
         this.gameOver(player, ": no winner");
         return;
       }
@@ -97,7 +97,7 @@ $(document).ready(function(){
         $('#game-status').empty().append(this.players[0] + message);
       } else if (player === playerTags[1]) {
         $('#game-status').empty().append(this.players[1] + message);
-      } else if (player === "Draw"){
+      } else if (player === "draw"){
           $('#game-status').empty().append(player + message);
       }
       this.gameEnd = true;
@@ -119,6 +119,8 @@ $(document).ready(function(){
         "players": [this.players[0].toString(), this.players[1].toString()],
         "outcome": this.outcome
       }
+
+
     };
 
     $('#clear-board').on('click', function() {
