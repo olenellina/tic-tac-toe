@@ -18,6 +18,7 @@ $(document).ready(function(){
     $('#board').hide();
     $('#clear-board').hide();
     $('#save-game').hide();
+    $('#hide-games').hide();
 
     $('#new-game').on('click',function(){
       game = new Game($('#player1').val().toString(), $('#player2').val().toString());
@@ -138,13 +139,21 @@ $(document).ready(function(){
       $('#player2').val("");
     });
 
-    $('#show').on('click', function() {
+    $('#show-games').on('click', function() {
       $.get(gameURL, successCallback);
+      $('#show-games').hide();
+      $('#hide-games').show();
+    });
+
+    $('#hide-games').on('click', function() {
+      $('#results').empty();
+      $('#show-games').show();
+      $('#hide-games').hide();
     });
 
     var successCallback = function (response) {
       for (var i=0; i < response.length; i++ ){
-        $('#results').append(response[i].outcome + "\n");
+        $('#results').append("<li>Game #: " + response[i].id + " Players: " + response[i].players + " Outcome: " + response[i].outcome + "</li>");
       }
     };
 
