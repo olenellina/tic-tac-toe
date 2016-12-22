@@ -153,7 +153,7 @@ $(document).ready(function(){
 
     var successCallback = function (response) {
       for (var i=0; i < response.length; i++ ){
-        $('#results').append("<li>Game #: " + response[i].id + " Players: " + response[i].players + " Outcome: " + response[i].outcome + "</li>");
+        $('#results').append("<tr><td>Game #: " + response[i].id + "</td> <td>Players: " + response[i].players + "</td><td> Outcome: " + response[i].outcome + "</td></tr>");
       }
     };
 
