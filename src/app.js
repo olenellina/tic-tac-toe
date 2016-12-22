@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     const playerTags = ["X", "O"];
-    const saveGame = "http://localhost:3000/api/v1/games"
+    const gameURL = "http://localhost:3000/api/v1/games"
 
     let Game = function(player1, player2) {
       this.board = [];
@@ -119,8 +119,6 @@ $(document).ready(function(){
         "players": [this.players[0].toString(), this.players[1].toString()],
         "outcome": this.outcome
       }
-
-
     };
 
     $('#clear-board').on('click', function() {
@@ -129,7 +127,7 @@ $(document).ready(function(){
 
     $('#save-game').on('click', function(e) {
       e.preventDefault();
-      $.post(saveGame, game.saveData(), function(response){
+      $.post(gameURL, game.saveData(), function(response){
         console.log(response);
       })
       $('#new').show();
@@ -139,5 +137,15 @@ $(document).ready(function(){
       $('#player1').val("");
       $('#player2').val("");
     });
+
+    $('#show').on('click', function() {
+      $.get(gameURL, successCallback);
+    });
+
+    var successCallback = function (response) {
+      for (var i=0; i < response.length; i++ ){
+        $('#results').append(response[i].outcome + "\n");
+      }
+    };
 
 });
